@@ -2,6 +2,7 @@
 
 ![N|Solid](https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg)
 
+Mengunnakan package Qr Code Scanner [Html5-QRCode](https://github.com/mebjas/html5-qrcode) Terima Kasih.
 
 Menggunakan  [laravel](https://nodejs.org/) v8 dan package [liveware](https://laravel-livewire.com/) dan Laravel WebSockets di [BeyondCode](https://beyondco.de/docs/laravel-websockets/getting-started/introduction) untuk trigger.
 
