@@ -4,6 +4,7 @@ use App\Events\NotifEvent;
 
 use App\Http\Livewire\ScanBarcodeLiveware;
 use App\Http\Livewire\WisudawanLiveware;
+use App\Http\Livewire\CreateBarcode;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +22,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-// Route::get('/send-event', function () {
-//     event(new NotifEvent('notif terkirim lagi'));
-// });
+Route::get('/send-event', function () {
+    event(new NotifEvent('notif terkirim lagi'));
+});
 
 // Route::get('/siswa', [Mahasiswa::class, 'index'])->name('mahasiswa');
 // Route::post('/siswa-event', [Mahasiswa::class, 'event'])->name('mahasiswa.event');
@@ -32,5 +33,6 @@ use Illuminate\Support\Facades\Route;
 // })->name('siswa.cek');
 
 Route::get('/wisudawan', WisudawanLiveware::class);
+Route::get('/create-barcode', CreateBarcode::class);
 // Route::get('/mahasiswa', PostMahasiswa::class);
 Route::get('/', ScanBarcodeLiveware::class);
