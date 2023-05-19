@@ -18,9 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/example-page', function () {
+    return view('example');
+});
 
 Route::get('/send-event', function () {
     event(new NotifEvent('notif terkirim lagi'));
@@ -32,7 +32,7 @@ Route::get('/send-event', function () {
 //     // broadcast(new NotifEvent('notif terkirim'));
 // })->name('siswa.cek');
 
-Route::get('/wisudawan', WisudawanLiveware::class);
-Route::get('/create-barcode', CreateBarcode::class);
+Route::get('/wisudawan', WisudawanLiveware::class)->name('wisuda');
+Route::get('/create-barcode', CreateBarcode::class)->name('buat-barcode');
 // Route::get('/mahasiswa', PostMahasiswa::class);
-Route::get('/', ScanBarcodeLiveware::class);
+Route::get('/', ScanBarcodeLiveware::class)->name('home');

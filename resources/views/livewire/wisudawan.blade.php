@@ -1,15 +1,27 @@
 <div>
-    {{-- Close your eyes. Count to one. That is how long forever feels. --}}
-    <section class="page-section portfolio" id="portfolio">
-        <!-- Portfolio Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Mahasiswa Sidang 20222</h2>
-        <!-- Icon Divider-->
-        <div class="divider-custom">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-            <div class="divider-custom-line"></div>
+
+    <div class="breadcrumbs">
+        <div class="page-header d-flex align-items-center" style="background-image: url('');">
+            <div class="container position-relative">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h2>Data Wisudawan</h2>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- Portfolio Grid Items-->
+        <nav>
+            <div class="container">
+                <ol>
+                    <li><a href="{{ route('home') }}">Home</a></li>
+                    <li>Data Wisudawan</li>
+                </ol>
+            </div>
+        </nav>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
         <div class="d-flex flex-wrap">
             <div class="cards-list">
                 @php
@@ -37,28 +49,27 @@
                 @endforeach
             </div>
         </div>
-    </section>
-    <!-- About Section-->
-    <!-- Contact Section-->
+    </section><!-- End Portfolio Details Section -->
+
+    @push('contentJS')
+    <script>
+        function kirimPesan() {
+            // alert('asd');
+            Livewire.emit('postRefresh');
+        }
+
+        // window.addEventListener('name-updated', event => {
+        //     alert('Name updated to: ' + event.detail.newName);
+        // })
+        window.addEventListener("DOMContentLoaded", (event) => {
+            Echo.channel('notif-channel')
+                .listen('NotifEvent', (e) => {
+                    console.log(e);
+                    alert('ada');
+                    Livewire.emit('postRefresh');
+                });
+
+        });
+    </script>
+    @endpush
 </div>
-@push('contentJS')
-<script>
-    function kirimPesan() {
-        // alert('asd');
-        Livewire.emit('postRefresh');
-    }
-
-    // window.addEventListener('name-updated', event => {
-    //     alert('Name updated to: ' + event.detail.newName);
-    // })
-    window.addEventListener("DOMContentLoaded", (event) => {
-        Echo.channel('notif-channel')
-            .listen('NotifEvent', (e) => {
-                console.log(e);
-                // alert('ada');
-                Livewire.emit('postRefresh');
-            });
-
-    });
-</script>
-@endpush
